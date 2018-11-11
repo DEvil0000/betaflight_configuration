@@ -10,6 +10,8 @@ version
 name Massive
 
 # resources
+resource SERIAL_TX 3 NONE
+resource SERIAL_TX 11 B10
 
 # mixer
 
@@ -20,6 +22,7 @@ name Massive
 
 # feature
 feature MOTOR_STOP
+feature SOFTSERIAL
 feature RSSI_ADC
 feature LED_STRIP
 feature ESC_SENSOR
@@ -27,14 +30,15 @@ feature ANTI_GRAVITY
 feature DYNAMIC_FILTER
 
 # beeper
+beeper -BAT_LOW
 beeper -ON_USB
 
 # map
 
 # serial
-serial 0 64 115200 57600 0 115200
 serial 2 2048 115200 57600 0 115200
-serial 5 1024 115200 57600 0 115200
+serial 5 64 115200 57600 0 115200
+serial 30 1024 115200 57600 0 115200
 
 # led
 led 0 6,15:SW:CBIW:2
@@ -71,19 +75,18 @@ set gyro_notch1_hz = 0
 set gyro_notch2_hz = 260
 set gyro_notch2_cutoff = 110
 set baro_hardware = NONE
-set mid_rc = 1516
-set min_check = 1130
-set max_check = 1930
+set min_check = 1000
+set max_check = 2000
 set rssi_channel = 9
 set fpv_mix_degrees = 30
-set serialrx_provider = SBUS
+set serialrx_provider = CRSF
 set blackbox_p_ratio = 64
 set motor_pwm_protocol = DSHOT1200
-set failsafe_kill_switch = ON
+set vbat_max_cell_voltage = 44
 set current_meter = ESC
 set yaw_motors_reversed = ON
 set small_angle = 180
-set deadband = 6
+set deadband = 5
 set yaw_deadband = 8
 set pid_process_denom = 2
 set osd_cap_alarm = 850
@@ -189,7 +192,7 @@ resource SONAR_ECHO 1 NONE
 resource LED_STRIP 1 A01
 resource SERIAL_TX 1 A09
 resource SERIAL_TX 2 NONE
-resource SERIAL_TX 3 B10
+resource SERIAL_TX 3 NONE
 resource SERIAL_TX 4 NONE
 resource SERIAL_TX 5 NONE
 resource SERIAL_TX 6 C06
@@ -197,7 +200,7 @@ resource SERIAL_TX 7 NONE
 resource SERIAL_TX 8 NONE
 resource SERIAL_TX 9 NONE
 resource SERIAL_TX 10 NONE
-resource SERIAL_TX 11 NONE
+resource SERIAL_TX 11 B10
 resource SERIAL_TX 12 NONE
 resource SERIAL_RX 1 A10
 resource SERIAL_RX 2 NONE
@@ -300,6 +303,7 @@ feature -ANTI_GRAVITY
 feature -DYNAMIC_FILTER
 feature RX_SERIAL
 feature MOTOR_STOP
+feature SOFTSERIAL
 feature RSSI_ADC
 feature LED_STRIP
 feature OSD
@@ -315,7 +319,7 @@ beeper DISARMING
 beeper ARMING
 beeper ARMING_GPS_FIX
 beeper BAT_CRIT_LOW
-beeper BAT_LOW
+beeper -BAT_LOW
 beeper GPS_STATUS
 beeper RX_SET
 beeper ACC_CALIBRATION
@@ -333,9 +337,10 @@ map AETR1234
 
 # serial
 serial 20 1 115200 57600 0 115200
-serial 0 64 115200 57600 0 115200
+serial 0 0 115200 57600 0 115200
 serial 2 2048 115200 57600 0 115200
-serial 5 1024 115200 57600 0 115200
+serial 5 64 115200 57600 0 115200
+serial 30 1024 115200 57600 0 115200
 
 # led
 led 0 6,15:SW:CBIW:2
@@ -547,9 +552,9 @@ set baro_tab_size = 21
 set baro_noise_lpf = 600
 set baro_cf_vel = 985
 set baro_cf_alt = 965
-set mid_rc = 1516
-set min_check = 1130
-set max_check = 1930
+set mid_rc = 1500
+set min_check = 1000
+set max_check = 2000
 set rssi_channel = 9
 set rssi_scale = 41
 set rssi_invert = OFF
@@ -558,7 +563,7 @@ set rc_interp_ch = RP
 set rc_interp_int = 19
 set fpv_mix_degrees = 30
 set max_aux_channels = 14
-set serialrx_provider = SBUS
+set serialrx_provider = CRSF
 set sbus_inversion = ON
 set spektrum_sat_bind = 0
 set spektrum_sat_bind_autoreset = ON
@@ -584,7 +589,7 @@ set thr_corr_angle = 800
 set failsafe_delay = 4
 set failsafe_off_delay = 10
 set failsafe_throttle = 1000
-set failsafe_kill_switch = ON
+set failsafe_kill_switch = OFF
 set failsafe_throttle_low_delay = 100
 set failsafe_procedure = DROP
 set align_board_roll = 0
@@ -592,7 +597,7 @@ set align_board_pitch = 0
 set align_board_yaw = 0
 set gimbal_mode = NORMAL
 set bat_capacity = 0
-set vbat_max_cell_voltage = 43
+set vbat_max_cell_voltage = 44
 set vbat_full_cell_voltage = 41
 set vbat_min_cell_voltage = 33
 set vbat_warning_cell_voltage = 35
@@ -646,7 +651,7 @@ set nav_slew_rate = 30
 set fixedwing_althold_reversed = OFF
 set alt_hold_deadband = 40
 set alt_hold_fast_change = ON
-set deadband = 6
+set deadband = 5
 set yaw_deadband = 8
 set yaw_control_reversed = OFF
 set pid_process_denom = 2
