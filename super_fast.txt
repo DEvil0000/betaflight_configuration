@@ -26,6 +26,7 @@ mixer QUADX1234
 # feature
 feature MOTOR_STOP
 feature SOFTSERIAL
+feature CURRENT_METER
 feature RSSI_ADC
 feature LED_STRIP
 
@@ -51,11 +52,12 @@ mode_color 6 1 2
 
 # aux
 aux 0 0 0 900 1375
-aux 1 1 1 900 1375
-aux 2 13 0 1850 2100
-aux 3 15 0 1600 1850
-aux 4 26 1 1800 2100
-aux 5 27 0 1850 2100
+aux 1 27 1 1850 2100
+aux 2 1 1 900 1375
+aux 3 26 0 1900 2100
+aux 4 12 0 1700 2100
+aux 5 14 0 1900 2100
+aux 6 25 1 1700 2100
 
 # adjrange
 
@@ -65,9 +67,8 @@ aux 5 27 0 1850 2100
 rxfail 3 h
 
 # master
-set mid_rc = 1516
-set min_check = 1120
-set max_check = 1930
+set min_check = 1000
+set max_check = 2000
 set rssi_channel = 9
 set rssi_scale = 41
 set max_aux_channels = 14
@@ -76,13 +77,15 @@ set min_throttle = 1120
 set motor_pwm_protocol = DSHOT600
 set small_angle = 180
 set serialrx_provider = SBUS
+set current_meter_type = ESC
 set gyro_notch1_hz = 370
 set gyro_notch2_hz = 485
-set deadband = 6
-set yaw_deadband = 8
+set deadband = 5
+set yaw_deadband = 6
 set yaw_motor_direction = -1
 set failsafe_delay = 12
 set failsafe_kill_switch = ON
+set baro_cf_vel =  0.985
 set pid_process_denom = 2
 set osd_units = METRIC
 set osd_vbat_pos = 2082
@@ -224,6 +227,7 @@ feature RX_SERIAL
 feature MOTOR_STOP
 feature SOFTSERIAL
 feature FAILSAFE
+feature CURRENT_METER
 feature RSSI_ADC
 feature LED_STRIP
 feature OSD
@@ -362,12 +366,12 @@ mode_color 7 0 3
 
 # aux
 aux 0 0 0 900 1375
-aux 1 1 1 900 1375
-aux 2 13 0 1850 2100
-aux 3 15 0 1600 1850
-aux 4 26 1 1800 2100
-aux 5 27 0 1850 2100
-aux 6 0 0 900 900
+aux 1 27 1 1850 2100
+aux 2 1 1 900 1375
+aux 3 26 0 1900 2100
+aux 4 12 0 1700 2100
+aux 5 14 0 1900 2100
+aux 6 25 1 1700 2100
 aux 7 0 0 900 900
 aux 8 0 0 900 900
 aux 9 0 0 900 900
@@ -427,9 +431,9 @@ rxfail 17 h
 
 # master
 set task_statistics = ON
-set mid_rc = 1516
-set min_check = 1120
-set max_check = 1930
+set mid_rc = 1500
+set min_check = 1000
+set max_check = 2000
 set rssi_channel = 9
 set rssi_scale = 41
 set rc_interp = AUTO
@@ -492,7 +496,7 @@ set vbat_hysteresis = 1
 set ibat_scale = 400
 set ibat_offset = 0
 set mwii_ibat_output = OFF
-set current_meter_type = ADC
+set current_meter_type = ESC
 set battery_meter_type = ADC
 set bat_detect_thresh = 55
 set use_vbat_alerts = ON
@@ -519,8 +523,8 @@ set imu_dcm_kp = 2500
 set imu_dcm_ki = 0
 set alt_hold_deadband = 40
 set alt_hold_fast_change = ON
-set deadband = 6
-set yaw_deadband = 8
+set deadband = 5
+set yaw_deadband = 6
 set thr_corr_value = 0
 set thr_corr_angle = 800
 set yaw_control_direction = 1
