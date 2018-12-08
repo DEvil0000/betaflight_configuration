@@ -60,8 +60,9 @@ aux 0 0 0 900 1375 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 0 1800 2100 0 0
 aux 3 15 0 1600 1825 0 0
-aux 4 28 1 1700 2100 0 0
-aux 5 35 1 1700 2100 0 0
+aux 4 26 2 1700 2100 0 0
+aux 5 28 1 1700 2100 0 0
+aux 6 35 1 1700 2100 0 0
 
 # adjrange
 
@@ -72,6 +73,13 @@ aux 5 35 1 1700 2100 0 0
 # rxfail
 
 # master
+set gyro_lowpass_hz = 130
+set gyro_lowpass2_type = BIQUAD
+set gyro_lowpass2_hz = 280
+set gyro_notch1_hz = 480
+set gyro_notch1_cutoff = 370
+set gyro_notch2_hz = 330
+set gyro_notch2_cutoff = 280
 set mag_hardware = NONE
 set baro_hardware = NONE
 set min_check = 1000
@@ -477,9 +485,9 @@ aux 0 0 0 900 1375 0 0
 aux 1 1 1 900 1300 0 0
 aux 2 13 0 1800 2100 0 0
 aux 3 15 0 1600 1825 0 0
-aux 4 28 1 1700 2100 0 0
-aux 5 35 1 1700 2100 0 0
-aux 6 0 0 900 900 0 0
+aux 4 26 2 1700 2100 0 0
+aux 5 28 1 1700 2100 0 0
+aux 6 35 1 1700 2100 0 0
 aux 7 0 0 900 900 0 0
 aux 8 0 0 900 900 0 0
 aux 9 0 0 900 900 0 0
@@ -555,13 +563,13 @@ set gyro_hardware_lpf = NORMAL
 set gyro_32khz_hardware_lpf = NORMAL
 set gyro_sync_denom = 1
 set gyro_lowpass_type = PT1
-set gyro_lowpass_hz = 100
-set gyro_lowpass2_type = PT1
-set gyro_lowpass2_hz = 300
-set gyro_notch1_hz = 0
-set gyro_notch1_cutoff = 0
-set gyro_notch2_hz = 0
-set gyro_notch2_cutoff = 0
+set gyro_lowpass_hz = 130
+set gyro_lowpass2_type = BIQUAD
+set gyro_lowpass2_hz = 280
+set gyro_notch1_hz = 480
+set gyro_notch1_cutoff = 370
+set gyro_notch2_hz = 330
+set gyro_notch2_cutoff = 280
 set gyro_calib_duration = 125
 set gyro_calib_noise_limit = 48
 set gyro_offset_yaw = 0
