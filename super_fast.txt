@@ -112,13 +112,22 @@ set name = super fast
 profile 0
 
 # profile 0
-set dyn_lpf_dterm_min_hz = 67
-set dyn_lpf_dterm_max_hz = 162
-set dterm_lowpass2_hz = 143
-set d_pitch = 30
-set d_roll = 28
-set d_min_roll = 18
-set d_min_pitch = 20
+set dyn_lpf_dterm_min_hz = 60
+set dyn_lpf_dterm_max_hz = 145
+set dterm_lowpass2_hz = 128
+set p_pitch = 29
+set i_pitch = 81
+set d_pitch = 19
+set f_pitch = 86
+set p_roll = 26
+set i_roll = 77
+set d_roll = 18
+set f_roll = 81
+set p_yaw = 28
+set i_yaw = 81
+set f_yaw = 81
+set d_min_roll = 12
+set d_min_pitch = 13
 
 rateprofile 0
 
@@ -1159,13 +1168,13 @@ profile 0
 
 # profile 0
 set profile_name = -
-set dyn_lpf_dterm_min_hz = 67
-set dyn_lpf_dterm_max_hz = 162
+set dyn_lpf_dterm_min_hz = 60
+set dyn_lpf_dterm_max_hz = 145
 set dyn_lpf_dterm_curve_expo = 5
 set dterm_lowpass_type = PT1
 set dterm_lowpass_hz = 150
 set dterm_lowpass2_type = PT1
-set dterm_lowpass2_hz = 143
+set dterm_lowpass2_hz = 128
 set dterm_notch_hz = 0
 set dterm_notch_cutoff = 0
 set vbat_pid_gain = OFF
@@ -1201,18 +1210,18 @@ set acro_trainer_angle_limit = 20
 set acro_trainer_lookahead_ms = 50
 set acro_trainer_debug_axis = ROLL
 set acro_trainer_gain = 75
-set p_pitch = 46
-set i_pitch = 90
-set d_pitch = 30
-set f_pitch = 95
-set p_roll = 42
-set i_roll = 85
-set d_roll = 28
-set f_roll = 90
-set p_yaw = 45
-set i_yaw = 90
+set p_pitch = 29
+set i_pitch = 81
+set d_pitch = 19
+set f_pitch = 86
+set p_roll = 26
+set i_roll = 77
+set d_roll = 18
+set f_roll = 81
+set p_yaw = 28
+set i_yaw = 81
 set d_yaw = 0
-set f_yaw = 90
+set f_yaw = 81
 set angle_level_strength = 50
 set horizon_level_strength = 50
 set horizon_transition = 75
@@ -1225,8 +1234,8 @@ set abs_control_error_limit = 20
 set abs_control_cutoff = 11
 set use_integrated_yaw = OFF
 set integrated_yaw_relax = 200
-set d_min_roll = 18
-set d_min_pitch = 20
+set d_min_roll = 12
+set d_min_pitch = 13
 set d_min_yaw = 0
 set d_min_boost_gain = 37
 set d_min_advance = 20
